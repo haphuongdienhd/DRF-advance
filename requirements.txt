@@ -1,0 +1,145 @@
+# Tools
+pre-commit
+
+# Django
+Django==4.1.7
+django-environ==0.8.1
+
+# Python-PostgreSQL Database Adapter
+psycopg2-binary==2.9.5
+
+# Models
+django-model-utils==4.3.1
+
+# Utils
+django-ipware==4.0.2
+six===1.16.0
+# DRF
+djangorestframework==3.14.0
+django-oauth-toolkit==2.2.0
+django-cors-headers==3.14.0
+dj-rest-auth==3.0.0
+django-allauth==0.52.0
+
+# Sendgird
+sendgrid-django==4.2.0
+
+# Static files
+whitenoise==6.3.0
+
+
+# Document
+drf-yasg==1.21.5
+
+# Celery
+celery==5.2.7
+redis==4.4.0
+django-celery-beat==2.4.0
+django-celery-results==2.3.0
+celery-once==3.0.1
+greenlet==2.0.1
+gevent==22.10.2
+
+# debug
+django_extensions==3.1.5
+django-debug-toolbar==3.2.4
+
+# WSGI Handler
+gunicorn==20.1.0
+importlib-metadata==4.12.0
+
+# code coverage and testing
+coverage==7.0.0
+# fake redis for testing
+fakeredis==2.5.0
+
+# storage
+boto3==1.21.28
+Pillow==9.3.0
+django-storages==1.13.2
+
+# user-agent
+pyyaml==6.0.0
+user-agents==2.0
+django-user-agents==0.4.0
+phonenumbers==8.10.23
+
+# Faker
+Faker==2.0.4
+
+# FCM
+fcm-django==1.0.12
+
+# Socket IO emitter
+socket.io-emitter==0.1.5.1
+
+# JWT
+PyJWT==2.6.0
+djangorestframework_simplejwt==5.2.2
+cryptography==38.0.4
+
+# Bug Service
+sentry-sdk==1.5.6
+bugsnag==3.6.0
+
+# logstash
+python-logstash==0.4.6
+
+# tsvector-field
+django-tsvector-field==0.9.4
+
+# 2FA
+django-otp==1.1.4
+
+
+# Fix celery
+vine==5.0.0
+
+# bdist_wheel
+wheel==0.35.1
+
+# Django cache memoize
+django-cache-memoize==0.1.10
+
+# django health check
+django-health-check==3.17.0
+
+# location
+us==2.0.2
+
+#branch io
+branchio==0.1.1
+
+
+#Stripe
+stripe==5.4.0
+
+#paypal
+paypal-checkout-serversdk==1.0.1
+paypalrestsdk==1.13.1
+
+
+# html editor
+django-tinymce==3.3.0
+
+# admin log viewer
+django-log-viewer==1.1.6
+
+#validate password
+django-password-validators==1.7.0
+
+
+
+#django-suit-v2
+https://github.com/darklow/django-suit/tarball/v2
+
+#translator
+translators==5.6.3
+
+#zipcodes
+zipcodes==1.2.0
+metadata-parser==0.12.0
+
+#2fa
+pyotp==2.9.0
+qrcode==7.4.2

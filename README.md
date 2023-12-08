@@ -22,10 +22,13 @@ python -m venv virtualenv
 # 2. Install dependency
 pip install -r requirements.txt
 
-# 3. Migrate database
+# 3. Create .env file
+copy ./config/settings/.env.template ./config/settings/.env
+
+# 4. Migrate database
 $ python manage.py migrate
 
-# 4. Start Django
+# 5. Start Django
 $ python manage.py runserver 0.0.0.0:8000
 ```
 
@@ -50,4 +53,11 @@ LOCAL_APPS = (
     'apps.APP_NAME',
 )
 
+```
+
+## Addition
+
+```bash
+# 1. collect static
+python manage.py collectstatic --settings=config.settings.settings --noinput
 ```
