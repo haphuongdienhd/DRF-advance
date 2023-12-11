@@ -66,7 +66,11 @@ LOCAL_APPS = [
 
 ]
 
-THIRD_APPS = []
+THIRD_APPS = [
+    "rest_framework",
+    "django.contrib.sites",
+    "drf_yasg",
+]
 
 INSTALLED_APPS = THIRD_APPS + LOCAL_APPS + INSTALLED_APPS
 
@@ -80,6 +84,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Auth model
+AUTH_USER_MODEL = "users.User"
+
+# Route
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -160,3 +168,11 @@ TEMP_FILE_URL = env("TEMP_FILE_URL", default=str(ROOT_DIR("media")))
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+WSGI_APPLICATION = "config.wsgi.application"
+
+# Registration
+SITE_ID = 1
+ACCOUNT_AUTHENTICATION_METHOD = "all"  # all , email or username
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
