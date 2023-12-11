@@ -1,13 +1,14 @@
 # DRF ADVANCE TRAINING
 
-a api docs using DRF
+A api docs using DRF as a client-side rendering, so not include django.templates
 
-
+## OS
+- Window
 
 ## Prerequisites
 - Python 3.11
 - Virtualenv
-- Postgres 14 +
+- Postgres 14+
 - Redis
 
 ## Getting started
@@ -24,6 +25,10 @@ pip install -r requirements.txt
 
 # 3. Create .env file
 copy ./config/settings/.env.template ./config/settings/.env
+# In /config/settings/.env remmeber to config:
+#   a. DATABASE_URL
+#   b. CELERY_BROKER_URL
+#   c. REDIS_CONN_URL
 
 # 4. Migrate database
 $ python manage.py migrate
@@ -60,4 +65,7 @@ LOCAL_APPS = (
 ```bash
 # 1. collect static
 python manage.py collectstatic --settings=config.settings.settings --noinput
+
+# 2. create super user
+python manage.py createsuperuser
 ```
