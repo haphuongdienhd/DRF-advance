@@ -18,7 +18,6 @@ from apps.users_auth.exceptions import (
 )
 
 class UserSerializer(serializers.ModelSerializer):
-    avatar = serializers.SerializerMethodField()
 
     class Meta:
         model = User
