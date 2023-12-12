@@ -34,7 +34,7 @@ class Category(TimeStampedModel):
 class Blog(TimeStampedModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owner')
-    categories = models.ManyToManyField(Category, blank=True, verbose_name='categories',related_name='blog_categories')
+    categories = models.ManyToManyField(Category, blank=True, verbose_name='categories',through='BlogCategory')
     title = models.CharField(max_length=20)
     description = models.CharField(max_length=255, null=True, blank=True)
     content = models.CharField(max_length=255, blank=True, null=True,)
@@ -44,4 +44,9 @@ class Blog(TimeStampedModel):
     is_public = models.BooleanField(default=True, help_text="No and only friend")
     is_banned = models.BooleanField(default=False)
     
+class BlogCategory(TimeStampedModel):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     
+    class Meta:
+        db_table = 'blogs_blog_category'
