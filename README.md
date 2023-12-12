@@ -69,3 +69,12 @@ python manage.py collectstatic --settings=config.settings.settings --noinput
 # 2. create super user
 python manage.py createsuperuser
 ```
+
+## Target
+
+```
+An app about forum of blogger
+Users: Have basic informations, friends, follower, following, referring_user and contribute point for reward.
+Blogs: have basic informations, categories, rate, comments, like and dislike
+Users can rating blogs, make friends
+```

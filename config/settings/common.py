@@ -63,12 +63,21 @@ INSTALLED_APPS = [
 LOCAL_APPS = [
     'apps.core.apps.CoreConfig',
     'apps.users.apps.UsersConfig',
-
+    'apps.users_auth.apps.UsersAuthConfig',
 ]
 
 THIRD_APPS = [
     "rest_framework",
+    # Auth
+    "rest_framework.authtoken",
+    "dj_rest_auth",
+    # Registration
     "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "dj_rest_auth.registration",
+    # Swagger
     "drf_yasg",
 ]
 
