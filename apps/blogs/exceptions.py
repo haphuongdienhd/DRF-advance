@@ -17,3 +17,12 @@ class BlogIsPrivateException(GenericException):
         if not message:
             message = "Blog is private"
         super().__init__(message=message)
+        
+class NotOwnerException(GenericException):
+    code = 3002
+    verbose = True
+
+    def __init__(self, message=None):
+        if not message:
+            message = "You are not the owner"
+        super().__init__(message=message)

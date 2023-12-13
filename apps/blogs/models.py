@@ -44,6 +44,9 @@ class Blog(TimeStampedModel):
     is_public = models.BooleanField(default=True, help_text="No and only friend")
     is_banned = models.BooleanField(default=False)
     
+    def __str__(self):
+        return f"{self.title}"
+    
 class BlogCategory(TimeStampedModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
