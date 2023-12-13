@@ -16,7 +16,12 @@ class RatingListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
-        return Rating.objects.all().order_by('modified')
+        return Rating.objects.filter(blog__is_public=True).order_by('modified')
+    
+    def get_serializer_context(self):
+        ctx = super().get_serializer_context()
+        ctx.update(reviewer_id=self.request.user.id)
+        return ctx
     
 class RatingRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.RatingSerializer
@@ -27,4 +32,7 @@ class RatingRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
         except Rating.DoesNotExist:
             raise RatingNotFoundException()
         
-    
+    def get_serializer_context(self):
+        ctx = super().get_serializer_context()
+        ctx.update(reviewer_id=self.request.user.id)
+        return ctx
