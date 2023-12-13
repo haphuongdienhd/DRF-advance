@@ -65,6 +65,7 @@ LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.users_auth.apps.UsersAuthConfig',
     'apps.blogs.apps.BlogsConfig',
+    'apps.rating.apps.RatingConfig',
 ]
 
 THIRD_APPS = [
