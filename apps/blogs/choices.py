@@ -1,0 +1,8 @@
+PRIVATE = "Private"
+FRIEND_ONLY = "Friend Only"
+PUBLIC = "Public"
+DISPLAY_CHOICES = [
+    (PRIVATE,PRIVATE),
+    (FRIEND_ONLY,FRIEND_ONLY),
+    (PUBLIC,PUBLIC)
+]

@@ -26,3 +26,12 @@ class NotOwnerRatingException(GenericException):
         if not message:
             message = "You are not rating's owner"
         super().__init__(message=message)
+        
+class MissingBlogField(GenericException):
+    code = 4004
+    verbose = True
+
+    def __init__(self, message=None):
+        if not message:
+            message = "Missing blog field"
+        super().__init__(message=message)

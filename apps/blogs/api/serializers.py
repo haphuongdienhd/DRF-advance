@@ -30,8 +30,7 @@ class BlogSerializer(serializers.ModelSerializer):
             'description',
             'categories',
             'content',
-            'is_private',
-            'is_public',
+            'display_type',
             'is_banned',
         )
         read_only_fields = (
