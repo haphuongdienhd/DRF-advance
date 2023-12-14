@@ -6,8 +6,7 @@ from apps.core.admin import StaffAdmin
 
 @admin.register(Friendship)
 class FriendshipAdmin(StaffAdmin):
-    list_display = ("user1", "user2", "is_active", "created")
-    list_filter = ["is_active"]
+    list_display = ("user1", "user2", "created")
 
 
 @admin.register(FriendRequest)
