@@ -5,6 +5,8 @@ from django.db import models
 
 from model_utils.models import TimeStampedModel
 
+from apps.blogs import choices
+
 # Create your models here.
 
 class Category(TimeStampedModel):
@@ -40,8 +42,7 @@ class Blog(TimeStampedModel):
     content = models.CharField(max_length=255, blank=True, null=True,)
     #rating????????????TODO
     
-    is_private = models.BooleanField(default=False, help_text="Yes and only you")
-    is_public = models.BooleanField(default=True, help_text="No and only friend")
+    display_type = models.CharField(max_length=50, choices=choices.DISPLAY_CHOICES, default=choices.PUBLIC)
     is_banned = models.BooleanField(default=False)
     
     def __str__(self):

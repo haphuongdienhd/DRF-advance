@@ -1,11 +1,13 @@
 from django.shortcuts import render
+from django.db.models import Q
 
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
 from apps.core.pagination import PageNumberPagination
 
-from apps.blogs.exceptions import BlogIsPrivateException, BlogNotFoundException
+from apps.blogs import choices
+from apps.blogs.exceptions import BlogIsPrivateException, BlogNotFoundException, NotOwnerException
 from apps.blogs.api import serializers
 from apps.blogs.models import Blog
 # Create your views here.
@@ -16,7 +18,8 @@ class BlogListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
-        return Blog.objects.filter(is_private=False,is_banned=False).order_by('modified')
+        where = Q(display_type=choices.PUBLIC)
+        return Blog.objects.filter(where, is_banned=False).order_by('modified')
     
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -44,3 +47,8 @@ class BlogRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
         if self.request.data.get("categories"):
             context.update(categories=self.request.data.get("categories"))
         return context
+    
+    def delete(self, request, *args, **kwargs):
+        if self.get_object().user != self.request.user:
+            raise NotOwnerException()
+        return super().delete(request, *args, **kwargs)
