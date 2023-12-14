@@ -25,18 +25,18 @@ class BlogAdmin(StaffAdmin):
         'user',
         'description',
         'category',
-        'is_private',
-        'is_public',
+        'display_type',
         'is_banned',
     )
     inlines=[ProductCategoryInline]
+    search_fields = ("title",)
     list_filter = ["user","categories"]
     
     @admin.display(empty_value="???")
     def category(self, blog):
-        procates = BlogCategory.objects.filter(blog=blog)
+        blogcates = BlogCategory.objects.filter(blog=blog)
         categories = ' '
-        for cate in procates:
+        for cate in blogcates:
             categories += str(cate.category.name + ', ')
             
         return categories
